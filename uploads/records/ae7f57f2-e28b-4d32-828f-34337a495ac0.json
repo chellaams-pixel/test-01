@@ -1,0 +1,20 @@
+{
+  "id": "ae7f57f2-e28b-4d32-828f-34337a495ac0",
+  "filename": "test_file.txt",
+  "original_path": "test_file.txt",
+  "processed_path": "./uploads/test_file.gz",
+  "file_size": 65,
+  "mime_type": "text/plain",
+  "upload_timestamp": "2025-09-02T02:58:08.904050279Z",
+  "processing_status": "Completed",
+  "metadata": {
+    "checksum": "f726e590ee8f6af0",
+    "compression_ratio": 0.7386363636363636,
+    "backup_path": "./backups/ae7f57f2-e28b-4d32-828f-34337a495ac0_20250902_025808.bak",
+    "tags": [
+      "ext:gz",
+      "uploaded:2025-09-02"
+    ],
+    "notes": null
+  }
+}

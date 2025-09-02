@@ -1,0 +1,85 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "Document Processing Workflow",
+  "description": "Process uploaded documents with validation, compression, and metadata extraction",
+  "version": "1.0.0",
+  "created_at": "2024-01-01T00:00:00Z",
+  "steps": [
+    {
+      "id": "validate_file",
+      "name": "Validate Uploaded File",
+      "step_type": "Validate",
+      "command": "echo",
+      "args": ["File validation completed"],
+      "timeout": 60,
+      "retry_count": 2,
+      "depends_on": [],
+      "condition": null,
+      "output": "validation_result"
+    },
+    {
+      "id": "extract_metadata",
+      "name": "Extract File Metadata",
+      "step_type": "Transform",
+      "command": "stat",
+      "args": ["$input_file"],
+      "timeout": 30,
+      "retry_count": 1,
+      "depends_on": ["validate_file"],
+      "condition": "$validation_result == 'success'",
+      "output": "metadata"
+    },
+    {
+      "id": "compress_file",
+      "name": "Compress File",
+      "step_type": "Transform",
+      "command": "gzip",
+      "args": ["-c", "$input_file", ">", "$output_file"],
+      "timeout": 300,
+      "retry_count": 2,
+      "depends_on": ["extract_metadata"],
+      "condition": null,
+      "output": "compressed_file"
+    },
+    {
+      "id": "create_backup",
+      "name": "Create Backup",
+      "step_type": "Command",
+      "command": "cp",
+      "args": ["$input_file", "$backup_dir"],
+      "timeout": 120,
+      "retry_count": 3,
+      "depends_on": ["compress_file"],
+      "condition": null,
+      "output": "backup_path"
+    },
+    {
+      "id": "notify_completion",
+      "name": "Notify Completion",
+      "step_type": "Notify",
+      "command": "echo",
+      "args": ["Processing completed for $input_file"],
+      "timeout": 10,
+      "retry_count": 1,
+      "depends_on": ["create_backup"],
+      "condition": null,
+      "output": "notification"
+    }
+  ],
+  "variables": {
+    "input_file": "",
+    "output_file": "",
+    "backup_dir": "./backups"
+  },
+  "metadata": {
+    "author": "Automation System",
+    "tags": ["document", "processing", "compression"],
+    "priority": "Normal",
+    "estimated_duration": 600,
+    "resource_requirements": {
+      "cpu_cores": 2,
+      "memory_mb": 512,
+      "disk_space_mb": 100
+    }
+  }
+}

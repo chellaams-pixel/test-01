@@ -1,0 +1,60 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440001",
+  "name": "Simple Test Workflow",
+  "description": "A simple workflow for testing",
+  "version": "1.0.0",
+  "created_at": "2024-01-01T00:00:00Z",
+  "steps": [
+    {
+      "id": "step1",
+      "name": "Echo Hello",
+      "step_type": "Command",
+      "command": "echo",
+      "args": ["Hello from workflow!"],
+      "timeout": 30,
+      "retry_count": 1,
+      "depends_on": [],
+      "condition": null,
+      "output": "step1_output"
+    },
+    {
+      "id": "step2",
+      "name": "List Files",
+      "step_type": "Command",
+      "command": "ls",
+      "args": ["-la"],
+      "timeout": 30,
+      "retry_count": 1,
+      "depends_on": ["step1"],
+      "condition": null,
+      "output": "step2_output"
+    },
+    {
+      "id": "step3",
+      "name": "Final Message",
+      "step_type": "Command",
+      "command": "echo",
+      "args": ["Workflow completed successfully!"],
+      "timeout": 30,
+      "retry_count": 1,
+      "depends_on": ["step2"],
+      "condition": null,
+      "output": "step3_output"
+    }
+  ],
+  "variables": {
+    "workflow_name": "Simple Test",
+    "environment": "development"
+  },
+  "metadata": {
+    "author": "Automation System",
+    "tags": ["test", "simple"],
+    "priority": "Normal",
+    "estimated_duration": 60,
+    "resource_requirements": {
+      "cpu_cores": 1,
+      "memory_mb": 128,
+      "disk_space_mb": 10
+    }
+  }
+}

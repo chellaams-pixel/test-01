@@ -1,0 +1,41 @@
+{
+  "id": "ed847bef-835c-4eb2-8034-20892a55afe8",
+  "workflow_id": "550e8400-e29b-41d4-a716-446655440001",
+  "status": "Completed",
+  "started_at": "2025-09-02T02:58:27.306501837Z",
+  "completed_at": "2025-09-02T02:58:27.309874895Z",
+  "steps_executed": [
+    {
+      "step_id": "step1",
+      "status": "Completed",
+      "started_at": "2025-09-02T02:58:27.306523824Z",
+      "completed_at": "2025-09-02T02:58:27.307261472Z",
+      "output": "Hello from workflow!\n",
+      "error_message": null,
+      "retry_count": 0
+    },
+    {
+      "step_id": "step2",
+      "status": "Completed",
+      "started_at": "2025-09-02T02:58:27.307282625Z",
+      "completed_at": "2025-09-02T02:58:27.308911386Z",
+      "output": "total 116\ndrwxr-xr-x 8 ubuntu ubuntu  4096 Sep  2 02:58 .\ndrwxr-xr-x 1 root   root    4096 Sep  2 02:52 ..\ndrwxr-xr-x 2 ubuntu ubuntu  4096 Sep  2 02:58 backups\n-rw-r--r-- 1 ubuntu ubuntu 49170 Sep  2 02:55 Cargo.lock\n-rw-r--r-- 1 ubuntu ubuntu   641 Sep  2 02:55 Cargo.toml\n-rw-r--r-- 1 ubuntu ubuntu   620 Sep  2 02:53 config.yaml\ndrwxr-xr-x 7 ubuntu ubuntu  4096 Sep  2 02:52 .git\n-rw-r--r-- 1 ubuntu ubuntu 11357 Sep  2 02:52 LICENSE\n-rw-r--r-- 1 ubuntu ubuntu  6890 Sep  2 02:54 README.md\ndrwxr-xr-x 7 ubuntu ubuntu  4096 Sep  2 02:54 src\ndrwxr-xr-x 3 ubuntu ubuntu  4096 Sep  2 02:55 target\n-rw-r--r-- 1 ubuntu ubuntu    65 Sep  2 02:58 test_file.txt\ndrwxr-xr-x 3 ubuntu ubuntu  4096 Sep  2 02:58 uploads\ndrwxr-xr-x 2 ubuntu ubuntu  4096 Sep  2 02:58 workflows\n",
+      "error_message": null,
+      "retry_count": 0
+    },
+    {
+      "step_id": "step3",
+      "status": "Completed",
+      "started_at": "2025-09-02T02:58:27.308945946Z",
+      "completed_at": "2025-09-02T02:58:27.309855412Z",
+      "output": "Workflow completed successfully!\n",
+      "error_message": null,
+      "retry_count": 0
+    }
+  ],
+  "variables": {
+    "workflow_name": "Simple Test",
+    "environment": "development"
+  },
+  "error_message": null
+}
